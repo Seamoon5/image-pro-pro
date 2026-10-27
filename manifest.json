@@ -1,0 +1,88 @@
+{
+  "manifest_version": 3,
+  "name": "Image Pro",
+  "version": "2.0.0",
+  "description": "Professional image downloader, editor and organiser. Scan any page, edit images, save collections, download in bulk.",
+  "author": "Salman",
+  "homepage_url": "https://github.com/Seamoon5/image-pro-pro",
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA1ZimgYHqYc06QRa5HvX9Gz52wLX+FQPxC6zL10ofZW3kvY7b0bcheg9f6tlvjg0UUATaHXztkYr3kohE06wm1fnS7HOb07jM2NJS5W41jfOrF2mpqSh1dFyGEbPukXdM+q7sG86sPRptpK1OV+DlOv3R65hlHChJ6x6fOZRgWmL0dtUj0RnRyIcG5U654+onQM3NOWi4/sO1bHKzuHoEa/GJst1hdMAp3z7B/kf2P2qN7QpV+RsjA7ztdxhsmy90MKpxQJhOLMYCaCFmUJiB9gMvO38xF+uZKGITdYrmJb6aClA0YtdM39/WotMP7yKqW3VnNUaZpQ5ogpm1zpTFxwIDAQAB",
+
+  "icons": {
+    "16": "icons/icon16.svg",
+    "48": "icons/icon48.svg",
+    "128": "icons/icon128.svg"
+  },
+
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.svg",
+      "48": "icons/icon48.svg",
+      "128": "icons/icon128.svg"
+    },
+    "default_title": "Image Pro"
+  },
+
+  "side_panel": {
+    "default_path": "sidepanel.html"
+  },
+
+  "options_page": "options.html",
+
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle",
+      "css": ["content.css"]
+    }
+  ],
+
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "downloads",
+    "storage",
+    "tabs",
+    "contextMenus",
+    "sidePanel",
+    "alarms"
+  ],
+
+  "host_permissions": [
+    "<all_urls>"
+  ],
+
+  "commands": {
+    "open-sidepanel": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+I",
+        "mac": "Command+Shift+I"
+      },
+      "description": "Open Image Pro side panel"
+    },
+    "scan-current-page": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+S",
+        "mac": "Command+Shift+S"
+      },
+      "description": "Scan current page for images"
+    }
+  },
+
+  "web_accessible_resources": [
+    {
+      "resources": ["icons/*", "assets/*"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  }
+}

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Image Pro — Settings</title>
+  <link rel="stylesheet" href="design-system.css">
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <div class="app page">
+    <header class="topbar">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="3"></circle>
+            <path d="M4 8.5V7a2 2 0 0 1 2-2h2l1.2-1.4A1.5 1.5 0 0 1 10.3 3h3.4a1.5 1.5 0 0 1 1.1.6L16 5h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-1.5"></path>
+            <path d="M2 12h3"></path>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-name">Image Pro</span>
+          <span class="brand-sub">Settings &amp; license</span>
+        </div>
+        <span id="opt-premium-badge" class="premium-badge" style="display:none">Premium</span>
+      </div>
+      <button type="button" class="btn btn-ghost" id="opt-back" style="display:none">Back to popup</button>
+    </header>
+
+    <section class="section" style="padding:20px">
+      <div class="section-title">License</div>
+      <div class="card" style="padding:18px; margin-bottom:16px">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px">
+          <div>
+            <div style="font-weight:700">Image Pro license</div>
+            <div style="font-size:12px;color:var(--muted);margin-top:4px">Unlock ZIP downloads, side panel, image editor, collections, history, unlimited batches.</div>
+          </div>
+          <div style="display:flex;gap:8px">
+            <input type="text" id="lic-key" placeholder="Enter license key" class="input" style="width:200px;font-size:12px;padding:8px 10px">
+            <button type="button" id="lic-activate" class="btn btn-premium">Activate</button>
+          </div>
+        </div>
+        <div id="lic-status" style="font-size:12px;margin-top:8px;min-height:18px"></div>
+        <div style="margin-top:10px;display:flex;gap:8px">
+          <button type="button" id="lic-deactivate" class="btn btn-ghost btn-sm" style="display:none">Deactivate Pro</button>
+          <button type="button" id="lic-info" class="btn btn-outline btn-sm">How to get a key</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="padding:20px">
+      <div class="section-title">Appearance</div>
+      <div class="card" style="padding:18px">
+        <label class="switch" style="display:flex;align-items:center;gap:10px">
+          <input type="checkbox" id="theme-dark">
+          <span class="switch-track"></span>
+          <span>Dark mode</span>
+        </label>
+      </div>
+    </section>
+
+    <section class="section" style="padding:20px">
+      <div class="section-title">Download defaults</div>
+      <div class="card" style="padding:18px">
+        <div class="input-row" style="gap:10px">
+          <input type="text" id="default-folder" placeholder="Default download folder (optional)" class="input">
+          <label class="switch" style="margin-left:auto">
+            <input type="checkbox" id="skip-tiny">
+            <span class="switch-track"></span>
+            <span>Skip tiny images (<50px)</span>
+          </label>
+        </div>
+      </div>
+    </section>
+
+    <section class="section premium-gated" style="padding:20px;display:none">
+      <div class="section-title">Pro features</div>
+      <div class="card" style="padding:18px">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:12px">
+          <div>
+            <div style="font-weight:700">Side panel</div>
+            <div style="font-size:12px;color:var(--muted);margin-top:4px">Persistent sidebar while you browse (Ctrl+Shift+I).</div>
+          </div>
+          <label class="switch">
+            <input type="checkbox" id="sp-enabled" checked>
+            <span class="switch-track"></span>
+          </label>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="padding:20px;border-bottom:none">
+      <div class="section-title">Data</div>
+      <div class="card" style="padding:18px">
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <button type="button" id="btn-export" class="btn btn-outline btn-sm">Export settings</button>
+          <button type="button" id="btn-reset" class="btn btn-ghost btn-sm" style="color:var(--danger)">Reset all data</button>
+        </div>
+        <div id="data-msg" style="font-size:12px;color:var(--muted);margin-top:8px;min-height:16px"></div>
+      </div>
+    </section>
+
+    <div class="toast" id="opt-toast" role="status" aria-live="polite"></div>
+  </div>
+
+  <script type="module" src="options.js"></script>
+</body>
+</html>

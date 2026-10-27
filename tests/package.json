@@ -1,0 +1,14 @@
+{
+  "name": "image-pro-pro-tests",
+  "version": "2.0.0",
+  "description": "Playwright browser tests for Image Pro Chrome extension",
+  "private": true,
+  "scripts": {
+    "test": "playwright test",
+    "test:ui": "playwright test --ui",
+    "install-browsers": "playwright install"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.48.0"
+  }
+}
