@@ -1,5 +1,12 @@
 /* popup.css — Image Pro popup-specific layout */
 
+body {
+  width: 450px;
+  min-height: 600px;
+  max-height: 800px;
+  overflow: hidden;
+}
+
 .topbar {
   display: flex;
   align-items: center;
